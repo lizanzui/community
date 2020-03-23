@@ -1,0 +1,13 @@
+body{
+    /*background-image: url("/preview.jpg");*/
+    background-color: #efefef;
+}
+.main{
+    margin: 30px;
+    background-color: white;
+    /*background-image: url("preview.jpg");*/
+}
+.btn-publish{
+    margin-bottom: 15px;
+    float: right;
+}
