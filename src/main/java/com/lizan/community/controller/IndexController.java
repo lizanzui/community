@@ -18,11 +18,9 @@ public class IndexController {
     @Autowired
     private UserMapper userMapper;
     @GetMapping("/")
-    public String index(HttpServletRequest request){
+    public String index(HttpServletRequest request,HttpServletResponse response){
+        response.addCookie(new Cookie("test","test"));
         Cookie[] cookies = request.getCookies();
-        if (cookies == null){
-            return "index";
-        }else {
             for (Cookie cookie : cookies) {
                 if(cookie.getName().equals("token")){
                     String token = cookie.getValue();
@@ -33,7 +31,6 @@ public class IndexController {
                     break;
                 }
             }
-        }
-        return "index";
+        return "publish";
     }
 }
