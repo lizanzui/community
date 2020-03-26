@@ -54,8 +54,8 @@ public class publishController {
         Cookie[] cookies = request.getCookies();
         User user = null;
         if (cookies == null){
-            user = null;
-        }else {
+
+        }
             for (Cookie cookie : cookies) {
                 if(cookie.getName().equals("token")){
                     String token = cookie.getValue();
@@ -66,7 +66,6 @@ public class publishController {
                     break;
                 }
             }
-        }
         if (user == null){
             model.addAttribute("error","用户未登录");
             return "publish";
