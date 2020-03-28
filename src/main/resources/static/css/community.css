@@ -1,8 +1,9 @@
 body{
-    background-image: url("preview.jpg");
     background-color: #efefef;
 }
 .main{
+    background-image: url("preview.jpg");
+    background-repeat: no-repeat;
     margin: 30px;
     background-color: white;
 }
