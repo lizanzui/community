@@ -1,21 +1,25 @@
-body{
+body {
     background-color: #efefef;
 }
-.main{
+
+.main {
     background-image: url("preview.jpg");
     background-repeat: no-repeat;
     margin: 30px;
     background-color: white;
 }
-.btn-publish{
+
+.btn-publish {
     margin-bottom: 15px;
     float: right;
 }
-.media-object{
+
+.media-object {
     height: 55px;
     width: 55px;
 }
-.text-desc{
+
+.text-desc {
     font-size: 12px;
     font-weight: normal;
     color: #999;

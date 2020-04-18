@@ -27,14 +27,15 @@ public class IndexController {
 
     @Autowired
     private QuestionService questionService;
+
     @GetMapping("/")
     public String index(HttpServletRequest request, HttpServletResponse response,
                         Model model,
-                        @RequestParam(name = "page",defaultValue = "1") Integer page,
-                        @RequestParam(name = "size",defaultValue = "5") Integer size){
+                        @RequestParam(name = "page", defaultValue = "1") Integer page,
+                        @RequestParam(name = "size", defaultValue = "5") Integer size) {
         Cookie[] cookies = request.getCookies();
-        response.addCookie(new Cookie("test","test"));
-        if (cookies != null && cookies.length != 0){
+        response.addCookie(new Cookie("test", "test"));
+        if (cookies != null && cookies.length != 0) {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("token")) {
                     String token = cookie.getValue();
@@ -46,8 +47,8 @@ public class IndexController {
                 }
             }
         }
-        PaginationDTO pagination = questionService.list(page,size);
-        model.addAttribute("pagination",pagination);
+        PaginationDTO pagination = questionService.list(page, size);
+        model.addAttribute("pagination", pagination);
         return "index";
     }
 }
