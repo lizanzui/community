@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" content="text/html" http-equiv="Content-type">
-    <title th:text="${sectionName}"></title>
+    <title th:text="${question.getTitle()}"></title>
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
     <link rel="stylesheet" href="/css/community.css"/>
@@ -14,60 +14,40 @@
 <div class="container-fluid main">
     <div class="row">
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-            <h3><span th:text="${sectionName}"></span></h3>
+            <h4><span th:text="${question.getTitle()}"></span></h4>
+            <span class="text-desc">
+                作者: <span th:text="${question.getUser().getName()}"></span> |
+                发布时间: <span th:text="${#dates.format(question.getGmtCreat(),'yyyy-MM-dd')}"></span> |
+                阅读数: <span th:text="${question.getViewCount()}"></span>
+            </span>
             <hr>
-            <div class="media" th:each="question : ${pagination.getQuestions()}">
-                <div class="media-left">
-                    <a href="#">
-                        <img class="media-object" src="/css/preview.jpg">
-                        <!--                        th:src="@{question.user.avatarUrl}"-->
-                    </a>
-                </div>
-                <div class="media-body">
-                    <h4 class="media-heading" th:text="${question.getTitle()}"></h4>
-                    <span class="text-desc"><span th:text="${question.getCommentCount()}"></span>个回复 ·
-                        <span th:text="${question.getLikeCount()}"></span>个点赞 ·
-                        <span th:text="${question.getViewCount()}"></span>次浏览 ·
-                        <span th:text="${#dates.format(question.getGmtCreat(),'dd MMMM yyyy')}"></span>
-                    </span>
-                </div>
-            </div>
-            <nav aria-label="Page navigation">
-                <ul class="pagination">
-                    <li th:if="${pagination.isShowFirstPage()}">
-                        <a th:href="@{/profile/{section}/(page = 1,section=${section})}" aria-label="Previous">
-                            <span aria-hidden="true">&lt;&lt;</span>
-                        </a>
-                    </li>
-                    <li th:if="${pagination.isShowPrevious()}">
-                        <a th:href="@{/profile/{section}/(page=${pagination.getPage()-1},section=${section})}" aria-label="Previous">
-                            <span aria-hidden="true">&lt;</span>
-                        </a>
-                    </li>
-                    <li th:each="page : ${pagination.getPages()}"
-                        th:class="${pagination.getPage() == page}?'active' : ''">
-                        <a th:href="@{/profile/{section}/(page=${page},section=${section})}" th:text="${page}"></a>
-                    </li>
-                    <li th:if="${pagination.isShowNext()}">
-                        <a th:href="@{/profile/{section}/(page=${pagination.getPage()+1},section=${section})}" aria-label="Next">
-                            <span aria-hidden="true">&gt;</span>
-                        </a>
-                    </li>
-                    <li th:if="${pagination.isShowEndPage()}">
-                        <a th:href="@{/profile/{section}/(page=${pagination.getTotalPage()},section=${section})}" aria-label="Next">
-                            <span aria-hidden="true">&gt;&gt;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:text="${question.getDescription()}"></div>
+            <hr class="col-lg-com12 col-md-12 col-sm-12 col-xs-12">
+            <a th:href="@{'/publish/'+${question.getId()}}" class="community-menu" th:if="${session.user != null && session.user.getId() == question.getCreator()}">
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                编辑
+            </a>
         </div>
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-            <div class="list-group">
-                <a href="/profile/questions" th:class="${section == 'questions'}?'active list-group-item' : 'list-group-item'">我的问题</a>
-                <a href="/profile/replies" th:class="${section == 'replies'}?'active list-group-item' : 'list-group-item'">
-                    最新回复
-                    <span class="badge">14</span>
-                </a>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h4>发起人</h4>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object img-circle" src="/css/preview.jpg">
+                            <!--                        th:src="@{question.user.avatarUrl}"-->
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h5 class="media-heading">
+                            <span th:text="${question.getUser().getName()}"></span>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <hr  class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h4>相关问题</h4>
             </div>
         </div>
     </div>

@@ -1,16 +1,13 @@
 package com.lizan.community.Mapper;
 
 import com.lizan.community.model.Question;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 @Mapper
 public interface QuestionMapper {
-    @Insert("insert into question(title,description,gmt_creat,gmt_modified,creator,tags) values(#{title},#{description},#{gmtCreat},#{gmtModified},#{creator},#{tag})")
+    @Insert("insert into question(title,description,gmt_creat,gmt_modified,creator,tag) values(#{title},#{description},#{gmtCreat},#{gmtModified},#{creator},#{tag})")
     void creat(Question question);
 
     @Select("select * from question limit #{offset} , #{size}")
@@ -27,4 +24,7 @@ public interface QuestionMapper {
 
     @Select("select * from question where id = #{id}")
     Question getById(@Param("id")Integer id);
+
+    @Update("update question set title = #{title}, description = #{description},gmt_modified = #{gmtModified},tag = #{tag} where id = #{id}")
+    void update(Question question);
 }
