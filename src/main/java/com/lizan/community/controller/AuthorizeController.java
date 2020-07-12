@@ -1,6 +1,5 @@
 package com.lizan.community.controller;
 
-import com.lizan.community.Mapper.UserMapper;
 import com.lizan.community.dto.AccessTokenDTO;
 import com.lizan.community.dto.GithubUser;
 import com.lizan.community.model.User;
