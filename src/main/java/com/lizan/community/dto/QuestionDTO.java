@@ -4,7 +4,7 @@ import com.lizan.community.model.User;
 import lombok.Data;
 
 @Data
-public class QuestionDto {
+public class QuestionDTO {
     private Long id;
     private Long creator;
     private Integer commentCount;

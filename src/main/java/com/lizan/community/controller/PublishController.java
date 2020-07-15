@@ -1,9 +1,11 @@
 package com.lizan.community.controller;
 
-import com.lizan.community.dto.QuestionDto;
+import com.lizan.community.cache.TagCache;
+import com.lizan.community.dto.QuestionDTO;
 import com.lizan.community.model.Question;
 import com.lizan.community.model.User;
 import com.lizan.community.service.QuestionService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,49 +17,59 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-public class publishController {
+public class PublishController {
 
     @Autowired
     private QuestionService questionService;
 
-
     @GetMapping("/publish/{id}")
-    public String edit(@PathVariable(name = "id")Long id,
+    public String edit(@PathVariable(name = "id") Long id,
                        Model model) {
-        QuestionDto question = questionService.getById(id);
+        QuestionDTO question = questionService.getById(id);
         model.addAttribute("title", question.getTitle());
         model.addAttribute("description", question.getDescription());
         model.addAttribute("tag", question.getTag());
-        model.addAttribute("id",question.getId());
+        model.addAttribute("id", question.getId());
+        model.addAttribute("tags", TagCache.get());
         return "publish";
     }
 
+
     @GetMapping("/publish")
-    public String publish() {
+    public String publish(Model model) {
+        model.addAttribute("tags", TagCache.get());
         return "publish";
     }
 
     @PostMapping("/publish")
     public String doPublish(
-            @RequestParam(value = "title",required = false) String title,
-            @RequestParam(value = "description",required = false) String description,
-            @RequestParam(value = "tag",required = false) String tag,
-            @RequestParam(value = "id",required = false) Long id,
+            @RequestParam(value = "title", required = false) String title,
+            @RequestParam(value = "description", required = false) String description,
+            @RequestParam(value = "tag", required = false) String tag,
+            @RequestParam(value = "id", required = false) Long id,
             HttpServletRequest request,
             Model model) {
         model.addAttribute("title", title);
         model.addAttribute("description", description);
         model.addAttribute("tag", tag);
-        if (title == null || title == "") {
+        model.addAttribute("tags", TagCache.get());
+
+        if (StringUtils.isBlank(title)) {
             model.addAttribute("error", "标题不能为空");
             return "publish";
         }
-        if (description == null || description == "") {
-            model.addAttribute("error", "描述不能为空");
+        if (StringUtils.isBlank(description)) {
+            model.addAttribute("error", "问题补充不能为空");
             return "publish";
         }
-        if (tag == null || tag == "") {
+        if (StringUtils.isBlank(tag)) {
             model.addAttribute("error", "标签不能为空");
+            return "publish";
+        }
+
+        String invalid = TagCache.filterInvalid(tag);
+        if (StringUtils.isNotBlank(invalid)) {
+            model.addAttribute("error", "输入非法标签:" + invalid);
             return "publish";
         }
 
@@ -67,11 +79,10 @@ public class publishController {
             return "publish";
         }
 
-
         Question question = new Question();
-        question.setTag(tag);
         question.setTitle(title);
         question.setDescription(description);
+        question.setTag(tag);
         question.setCreator(user.getId());
         question.setId(id);
         questionService.createOrUpdate(question);

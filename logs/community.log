@@ -1,0 +1,48 @@
+2020-07-14 11:31:23.682  INFO 12268 --- [restartedMain] c.lizan.community.CommunityApplication   : Starting CommunityApplication on DESKTOP-KUF3IN4 with PID 12268 (D:\ideaspace\community\target\classes started by user in D:\ideaspace\community)
+2020-07-14 11:31:23.687  INFO 12268 --- [restartedMain] c.lizan.community.CommunityApplication   : No active profile set, falling back to default profiles: default
+2020-07-14 11:31:23.763  INFO 12268 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-14 11:31:23.763  INFO 12268 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-14 11:31:24.908  INFO 12268 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2020-07-14 11:31:24.916  INFO 12268 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-14 11:31:24.916  INFO 12268 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-07-14 11:31:24.989  INFO 12268 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-14 11:31:24.990  INFO 12268 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1226 ms
+2020-07-14 11:31:25.670  INFO 12268 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-14 11:31:25.741  INFO 12268 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-14 11:31:25.909  INFO 12268 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 6.3.1 by Redgate
+2020-07-14 11:31:25.929  INFO 12268 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-14 11:31:26.248  INFO 12268 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-14 11:31:26.289  INFO 12268 --- [restartedMain] o.f.c.internal.database.DatabaseFactory  : Database: jdbc:mysql://localhost:3306/community (MySQL 5.7)
+2020-07-14 11:31:26.400  INFO 12268 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.054s)
+2020-07-14 11:31:26.410  INFO 12268 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema `community`: 1
+2020-07-14 11:31:26.410  INFO 12268 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema `community` is up to date. No migration necessary.
+2020-07-14 11:31:26.622  INFO 12268 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-14 11:31:26.695  INFO 12268 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
+2020-07-14 11:31:26.698  INFO 12268 --- [restartedMain] c.lizan.community.CommunityApplication   : Started CommunityApplication in 3.682 seconds (JVM running for 4.668)
+2020-07-14 11:31:43.327  INFO 12268 --- [http-nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-14 11:31:43.327  INFO 12268 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-14 11:31:43.365  INFO 12268 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 38 ms
+2020-07-14 16:22:01.480  INFO 20260 --- [restartedMain] c.lizan.community.CommunityApplication   : Starting CommunityApplication on DESKTOP-KUF3IN4 with PID 20260 (D:\ideaspace\community\target\classes started by user in D:\ideaspace\community)
+2020-07-14 16:22:01.506  INFO 20260 --- [restartedMain] c.lizan.community.CommunityApplication   : No active profile set, falling back to default profiles: default
+2020-07-14 16:22:01.709  INFO 20260 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-14 16:22:01.709  INFO 20260 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-14 16:22:03.685  INFO 20260 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2020-07-14 16:22:03.695  INFO 20260 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-14 16:22:03.695  INFO 20260 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-07-14 16:22:03.811  INFO 20260 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-14 16:22:03.812  INFO 20260 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2102 ms
+2020-07-14 16:22:04.721  INFO 20260 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-14 16:22:04.786  INFO 20260 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-14 16:22:04.915  INFO 20260 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 6.3.1 by Redgate
+2020-07-14 16:22:04.923  INFO 20260 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-14 16:22:05.319  INFO 20260 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-14 16:22:05.369  INFO 20260 --- [restartedMain] o.f.c.internal.database.DatabaseFactory  : Database: jdbc:mysql://localhost:3306/community (MySQL 5.7)
+2020-07-14 16:22:05.457  INFO 20260 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.049s)
+2020-07-14 16:22:05.476  INFO 20260 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema `community`: 1
+2020-07-14 16:22:05.478  INFO 20260 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema `community` is up to date. No migration necessary.
+2020-07-14 16:22:05.725  INFO 20260 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-14 16:22:05.796  INFO 20260 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
+2020-07-14 16:22:05.801  INFO 20260 --- [restartedMain] c.lizan.community.CommunityApplication   : Started CommunityApplication in 5.098 seconds (JVM running for 7.161)
+2020-07-14 16:22:22.929  INFO 20260 --- [http-nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-14 16:22:22.929  INFO 20260 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-14 16:22:22.934  INFO 20260 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
